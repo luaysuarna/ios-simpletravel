@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="City" representedClassName=".City" syncable="YES">
+        <attribute name="city_desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hotels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hotel" inverseName="city" inverseEntity="Hotel" syncable="YES"/>
+    </entity>
+    <entity name="Hotel" representedClassName=".Hotel" syncable="YES">
+        <attribute name="feedback" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasAtm" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasTaxi" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasWifi" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="hotels" inverseEntity="City" syncable="YES"/>
+        <relationship name="roomTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoomType" inverseName="hotel" inverseEntity="RoomType" syncable="YES"/>
+    </entity>
+    <entity name="RoomType" representedClassName=".RoomType" syncable="YES">
+        <attribute name="bathroom" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="bed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="capacity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasBreakfast" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasView" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageRoomType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="stockRoom" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="hotel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hotel" inverseName="roomTypes" inverseEntity="Hotel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-270" positionY="129" width="128" height="103"/>
+        <element name="Hotel" positionX="115" positionY="171" width="128" height="193"/>
+        <element name="RoomType" positionX="-90" positionY="243" width="128" height="193"/>
+    </elements>
+</model>
